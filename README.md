@@ -33,16 +33,19 @@ The task is episodic, and in order to solve the environment, your agent must get
 2. During training with the original environent, my Ubuntu machine kept crashing; therefore, I switched to headless version.
 
 3. Policy used:
-- To replace the original `uniform` policy in the notebook, I used a DQN agent, combining of 2 Q networks to learn a policy from 2000 episodes.
-- The DQN agent is modified from the one used in `Lunar Lander`, but with `state` being a `(37,1)` vector and `action` being a `(4,1)` vector.
+- To replace the original `uniform` policy in the notebook, I used a DQN agent, located in `agent` folder, combining of 2 Q networks to learn a policy from 2000 episodes.
+- The DQN agent was modified from the one used in `Lunar Lander`, but with `state` being a `(37,1)` vector and `action` being a `(4,1)` vector.
 - Here is the plot of the scores achieved after each episode.
 
 4. Training the DQN Agent:
 - By using 2 Q-Networks at the same time, my GPU consumption is ![921MB](assets/gpustats.png)
 - Here is the plot of the scores achieved after each episode.
 ![result](assets/output.png)
-- My agent reached an avg score of 15.38 after 2000 episodes
+- My agent reached an avg score of 15.38 after 2000 episodes.
+- The checkpoint of the last episode is saved in `checkpoint_last.pth`
+- The checkpoint of the episode that has mean score >= 200.0 is saved in `checkpoint_best.pth`
 
-5. Future plan:
+
+1. Future plan:
 - Integrate [wandb](https://wandb.ai/) into training pipeline to have better visualization with different hyper-parameters (epsion, hidden units in the Q-nets).
 - Dockerization for better setup and packaging.
